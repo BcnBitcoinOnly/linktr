@@ -9,12 +9,18 @@ const Nostr = () => {
   //const [uniqueEvents, setUniqueEvents] = useState(new Set());
 
   const relayList = useMemo(() => [
+    "wss://relay.damus.io/",
     "wss://nos.lol/",
-    "wss://relay.nostr.band/",
+    "wss://eden.nostr.land/",
+    "wss://relay.snort.social/",
     "wss://nostr.wine/",
-    "wss://purplepag.es/",
-    "wss://relayable.org/",
-    "wss://relay.damus.io",
+    "wss://relay.nostr.band/",
+    "wss://nostr-pub.wellorder.net/",
+    "wss://nostr.bitcoiner.social/",
+    "wss://nostr.mutinywallet.com/",
+    "wss://relay.bitcoinbarcelona.xyz/",
+    "wss://relay.minibolt.info/",
+    "wss://relay.nostr.bg/",
   ], []);
 
   const getHexPubKey = (inNpub) => {
@@ -84,7 +90,7 @@ const Nostr = () => {
           //console.log(events, relayURL);
         }
       );
-        
+
       relayPool.onerror((err, relayUrl) => {
         console.log("RelayPool notice", err, " from relay ", relayUrl);
       });
@@ -95,9 +101,9 @@ const Nostr = () => {
         relayPool.close();
       };
     };
-    
+
     window.onload = onLoad;
-    
+
     return () => {
       window.onload = null;
     };
@@ -111,7 +117,7 @@ const Nostr = () => {
         </div>
       <EventListComponent events={events} />
       {parseInt(process.env.REACT_APP_NOSTR_NOTES_TO_SHOW) > 0 && (
-          <button><a href={ process.env.REACT_APP_NOSTR_OUTER_PROFILES + nip19.npubEncode(getHexPubKey()) } target="_blank" rel="noreferrer" > More... </a></button>
+          <button><a href={ process.env.REACT_APP_NOSTR_OUTER_PROFILES + nip19.npubEncode(getHexPubKey()) } target="_blank" rel="noreferrer" > Más... </a></button>
         )}
       </div>
     </div>

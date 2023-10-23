@@ -9,10 +9,10 @@ export const Donations = () => {
       </a>
     </button>
   ));
-  
+
   return (
     <div className='donations'>
-      <h3>Donations</h3>
+      <h3>Donaciones</h3>
       {renderedLinks}
     </div>
   );
